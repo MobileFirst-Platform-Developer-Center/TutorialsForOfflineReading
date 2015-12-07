@@ -1,538 +1,401 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>IBM MobileFirst Platform tutorials for offline reading</title>
+        <style>
+            
+        </style>
+    </head>
 
-<head>
-  <title>IBM MobileFirst Platform 7.1 Offline Tutorials</title>
-  <meta charset="UTF-8">
-  <style>
-    body {
-      font-family: helvetica;
-    }
-    h1,
-    h3,h2 {
-      margin-bottom: 0
-    }
-    h3 {
-      font-style: italic;
-    }
-    p {
-      margin-top: 0;
-    }
-    ul {
-      line-height: 1.5em;
-    }
-    img {
-      border-bottom: 1px slid black;
-    }
-    article > details > summary {
-      font-size: 150%;
-      font-weight: bold;
-    }
-    summary:focus {
-      outline-style: none;
-    }
-  </style>
-</head>
+    <body>
+        <h1>IBM MobileFirst Platform Offline Tutorials</h1>
+        <p>Below are the tutorials from the IBM MobileFirst Platform Developer Center, available for offling reading.</p>
+        <hr>
+        
+        <h2 id="ibm-mobilefirst-platform-foundation-8-0">IBM MobileFirst Platform Foundation 8.0</h2>
 
-<body>
-  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAeCAYAAAAFOQOpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAB7xJREFUeNrsXEty4kgQFY5ez4R8BHEEfAQ4AixnCZuZtXQEWM8K7WaW6AjoCNYRrCNYMSdgKh0v7XR1/aABQ3dmRAVGqk9WVr38VeHR4XDIlJSUfm56UBEoKSnQlZSUfgL6piJQUnLT73/9W5qPNb5W//39x+aGeSU+S3xdGV7rTxUoRkec/kxfUab83FcgAK6/jtUP9JOjj+cj2vDY89CzI/mYiPnESn4K35cshrYRnl/tdaJ1NmV/QZ72YvziFuSUWn7785+pKQdTtnfG9x58f5K3z3WfJyiRuer8y9FoNHqlcmSz2izqyFXIItGamT53Z+bzxZTC8byEIWEe+jtbggk+uyMt696UA0r5BXy3+JzGYvQhBmKziEvS0Kh7dTKbpsLmaS40xKMPMCgDCv39dA+71vBJrtwMYJ9eadh7A7ekXODhKGULpXor/HuBThohB5hj1rwLKIPSlGdTDihkodYRBTIxZS/aHGJtEq1OifG5z73LCl3BShdkUa35vbD1uwLYe6zZRH2my5CJjZtbjOVdybgGQF5CO323WeEWdChTR52dwysgDVPCmszIIjre721N5GoD8BM4FjGrTsrGsbGpP1JC1Gd3ImhzxL0dW3VSVJg3y22LsSrI9dkxP5LnmuRq+lnZ/JIywJ9Pp/J6wtymyHlMLANQMQ+koMA7ESmrDPMcMG/p/fWm3dh6thT9U5uNqbNx8EEx8hhrTm1y8qSgHAvIemu52iviE3WkoWjM88UZE2ByHgPG3higt5E2pfCIWyT6evOO9o4dWr0nAc17KXNWLKMUXh887hYNPsHG9Vnz2mc9RZ1KxIgL9D1xTCYTE/C12Z6wYXkDtAAK9fkI0OWn9BmhKRZxDlBLJVhizFaGBpgjLfgSyuOiHoWQh9ergsLtBI+P4HHPPBL48I7WZ4y6BNZa5AQ4ZyBBvgb4GksGFFLsA8qaAP6I+nLP7K2+mM811oHXnXgosCfOAfKd2D8bgYc9wBxq0wvl/2Z0zLupeN4KjEnlvrHeJYcIvuM1ZmDucM9pEhSf1h63eikAuxFuY2PqdwwA2lAOC1UhlpRterSZw+r1R2zqJYS3YG8Anwv2Oszn3OEVvMJC+eL3WNxWYtya5yOSYK1sj7Eb9hKEd/CK949nAnkJeTQRz6B0rB3L7CWmKBI8hSXA14v+3xQxQr3SsuwFrH3lUawztOe+ZpAdg5zXvTfPF/A+qoQ1zAMgZyWyIFfdeueyyrLNTFp887xCfSpjst7mWYs938u6dGSG/un56hjZPwQSN73tfmOhCt6YHnAVUAQbT4zYuLKCrDwcbTpfJjHBun4HLEuZHdvnMTSz5sNzWPryHwmbL0ZLK/5/LxyKJbiuk0Du5Yf5A2h9yrrKPs6CM8uSuaiTIJfPodAGx/4bQiAG+HLsi8FWanhXwkVvXDG6bWmtNq1Vf4BHw0qWnnUu/Jl+OGwOhaut5Xn7gS6AQK7O3GGtm8AmiWVbe4/GDLXpYlo2EAosPRt/Z9WzrbY3454wtmuTEehZC29FUnDtCZFOoTrA99ilfB3KZuwCD5TTj/IZ9AZ4XCtR2gdk3iXss6OUlQHTBLkX4mEFILoMSB3JvCe3wRiNZXSo7gT8JIXNQklUaPsKJRO8GdeIeLNBbDaF4Nvs9inV+lwiLu4DnlINWZZCi1PCkTyP2VcLDbytIZfBAtWPrnvKkeyAel91NFdE9kYBQPUBsA0GYK4+X6znWURZrK3wmZRtGxrb2vs5xu4eAtr1PauOxV+iYZ1geYsEQQ4BAfs8heEEoG8iZ+JXPwfHGXzF9wEAoOm1jtkiIN+zi0+nAKLUZ1KAMcWafyHI2fV+BA9rtoj2voIbHXL9neFcQpFWvmUvGsm6IoI/9ki2iONHsPDRH7Vwdnop3IYmsIF7XkxXHAqXbG7FEu8L7GkzkfH2EWsWjOtxtn6Wc/pEEL1gvCLA61efby8R93YRhXsqdaGcCF/k+epbdAJkuYPf1gpjfXJ0tSkoRncVjydIoM6RgKMyuPICKWFCDOg1NFjJ8VXCItQiDi3FIs6zj3Py1rOZXG22Iu5N3gAi8ceXcCZWvFnGFNeZqRVznFiKLHoB6YqU+xRjwBqnhj81whSfNVwHEm83EfrBbX4LawFA26LOs89n9xw3N/AQCkebbea4QwJQD8LQnrxXv8VcTIodU5IAos1GbN61w2L2Isvocut8bVYnzG8FBcUXZOz31bUuoSBBMg3w0jvkm1/5wkzD8ufjLLjzfB+hc4B6yNzHsM5km+mvxvzfL8iICzpDSsLwBmgFOexwFNZBDry+FeYzRUzeoM0OcXotZDmHbBfsZruUYyr+fPSQuPgZknBJGgVHOJVj8TfI6g4eDfrk0Fp1Js5DT4iFxw4rQYuzuuamAv9PDl4GPLPnePX70vCCVsgX8OnEq1gbktvOunRCfPLJRpkwRpV9/MBGnoA0t5CMTHXtTZkJ4yNv4M3EFVhWYIVoU2UfF8D4vsVTwCXn551HEaSFjvqvpJSUnEmt92vWCXHxLfHNSufT7+f1P8woKYVj9PzO+VegKykFqBPu9z2R84RKXXclpbgbnGV3/q+kFOhKSr8AqeuupKRAV1JSUqArKSkp0JWUlBToSkpKCnQlJaVz0f8CDAAk4CmuckAAmQAAAABJRU5ErkJggg=="
-  />
-  <hr>
-  <article>
+<h3 id="quick-start">Quick Start</h3>
 
-    <header>
-      <h1>IBM MobileFirst Platform 7.1 Offline Tutorials</h1>
-    </header>
-    <div>
-      <p>Below you will find a list of all categories and tutorials for offline viewing.</p>
+<p>Get a feel of the MobileFirst SDK with these fast-tracked demos.</p>
 
-      <ul>
-        <li><a href="#foundation">Foundation</a>
-          <ul>
-            <li><a href="#gettingStartedTutorials">Getting Started Tutorials</a></li>
-            <li><a href="#bluemixTutorials">IBM MobileFirst Platform Foundation on IBM Containers</a></li>
-          </ul>
-        </li>
-        <li><a href="#qualityAssurance">Quality Assurance</a></li>
-        <li><a href="#applicationScanning">Application Scanning</a></li>
-        <li><a href="#cloudantDataLayer">Cloudant Data Layer</a></li>
-        <li><a href="#productIntegrationTutorials">Product Integration</a></li>
-      </ul>
+<ul>
+<li><a href="tutorials/en/foundation/8.0/quick-start/ios.pdf">Quick start with iOS</a></li>
+<li><a href="tutorials/en/foundation/8.0/quick-start/android.pdf">Quick start with Android</a></li>
+<li><a href="tutorials/en/foundation/8.0/quick-start/windows-8.pdf">Quick start with Windows 8 Universal</a></li>
+<li><a href="tutorials/en/foundation/8.0/quick-start/windows-10.pdf">Quick start with Windows 10 UWP</a></li>
+<li><a href="tutorials/en/foundation/8.0/quick-start/cordova.pdf">Quick start with Cordova</a></li>
+</ul>
 
-      <h2 id="foundation">Foundation</h2>
+<h3 id="setting-up-your-development-environment">Setting up your development environment</h3>
 
-      <h3 id="gettingStartedTutorials">Getting Started Tutorials</h3>
+<p>Set up your development environment to work with IBM MobileFirst Platform Foundation.</p>
 
-      <h4>Setting up your development environment</h4>
-      <p>Set up your development environment to work with IBM MobileFirst Platform Foundation.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Setting_up_your_development_environment/Setting_up_the_MobileFirst_development_environment.pdf">Setting up the MobileFirst development environment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Setting_up_your_development_environment/Setting_up_the_iOS_development_environment.pdf">Setting up the iOS development environment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Setting_up_your_development_environment/Setting_up_the_Android_development_environment.pdf">Setting up the Android development environment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Setting_up_your_development_environment/Setting_up_the_BlackBerry_10_development_environment.pdf">Setting up the BlackBerry 10 development environment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Setting_up_your_development_environment/Setting_up_the_Windows_Universal_and_Windows_Phone_8_development_environment.pdf">Setting up the Windows / Phone 8 development environment</a>
-        </li>
-      </ul>
+<ul>
+<li><a href="tutorials/en/foundation/8.0/setting-up-your-development-environment/setting-up-the-mobilefirst-development-environment.pdf">Setting up the MobileFirst development environment</a></li>
+<li><a href="tutorials/en/foundation/8.0/setting-up-your-development-environment/setting-up-the-ios-development-environment.pdf">Setting up the iOS development environment</a></li>
+<li><a href="tutorials/en/foundation/8.0/setting-up-your-development-environment/setting-up-the-android-development-environment.pdf">Setting up the Android development environment</a></li>
+<li><a href="tutorials/en/foundation/8.0/setting-up-your-development-environment/setting-up-the-windows-8-and-windows-10-development-environment.pdf">Setting up the Windows &amp; Windows Phone development environments</a></li>
+<li><a href="tutorials/en/foundation/8.0/quick-start/introduction-to-mobilefirst-platform-operations-console.pdf">Introduction to MobileFirst Operations Console</a></li>
+</ul>
 
-      <h4>Hello World</h4>
-      <p>Create your first MobileFirst app and preview it in different mobile operating systems.</p>
-      <ul>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Your_first_hybrid_application.pdf">Your first hybrid application</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Previewing_your_hybrid_application.pdf">Previewing your hybrid application</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Introduction_to_MobileFirst_Platform_Operations_Console.pdf">Introduction to MobileFirst Operations Console</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Configuring_a_native_iOS_application_with_the_MobileFirst_Platform_SDK.pdf"> Configuring a native iOS application with the MobileFirst Platform SDK</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Configuring_a_native_Android_application_with_the_MobileFirst_Platform_SDK.pdf"> Configuring a native Android application with the MobileFirst Platform SDK</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Configuring_a_native_Windows_Phone_8_application_with_the_MobileFirst_Platform_SDK.pdf">Configuring a native Windows Phone 8 application with the MobileFirst Platform SDK</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Configuring_a_native_Windows_Universal_application_with_the_MobileFirst_Platform_SDK.pdf">Configuring a native Windows 8 Universal application with the MobileFirst Platform SDK</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Integrating_IBM_MobileFirst_Platform_Foundation_SDK_in_Cordova_applications.pdf">Integrating MobileFirst Platform Foundation SDK in Cordova Applications</a></li>
-      <li> <a href="Foundation/Getting_Started_Tutorials/Hello_World/Connecting_to_the_MobileFirst_Server.pdf">Connecting to the MobileFirst Server</a></li>
-      </ul>
+<h3 id="configuring-the-mobilefirst-sdk">Configuring the MobileFirst SDK</h3>
 
-      <h4>Hybrid client-side development basics</h4>
-      <p>Use basic MobileFirst APIs to develop your apps, build a multi-page application, work with the user interface framework, and debug and optimize your apps.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/Hybrid_applications_client-side_API_basics.pdf">Hybrid applications client-side API basics</a></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/Building_a_multipage_application.pdf">Building a multi-page application</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/Working_with_UI_frameworks.pdf">Working with UI frameworks</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/Debugging_applications.pdf">Debugging applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/Optimizing_your_application_for_various_environments.pdf">Optimizing your application for various environments</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_for_iOS.pdf">General information when developing for iOS</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_for_Android.pdf">General information when developing for Android</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_for_BlackBerry_10.pdf">General information when developing for BlackBerry 10</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_for_Windows_Phone_8.pdf">General information when developing for Windows Phone 8</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_for_Windows_8_Universal.pdf">General information when developing for Windows 8 Universal</a></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_when_developing_Mobile_Web_applications.pdf">General information when developing Mobile Web applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Client-side_development_basics/General_information_for_developing_desktop_applications.pdf">General information for developing desktop applications</a>
-        </li>
-      </ul>
+<p>Add the MobileFirst Platform Foundation SDK to your Cordova or Native iOS, Android, Windows 8 or 10  application.</p>
 
-      <h4>Advanced client-side development</h4>
-      <p>Implement different features in your mobile app, such as controls, skins, offline access, translation, and encryption of sensitive data. Develop your client application by using native APIs.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Overview_of_client_technologies.pdf">Overview of client technologies</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Common_UI_controls.pdf">Common UI controls</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Supporting_multiple_form-factors_using_skins.pdf">Supporting multiple form-factors using skins</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Translation.pdf">Translation</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Using_Direct_Update_to_quickly_update_your_application.pdf">Using Direct Update to quickly update your application</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Using_CLI_to_create,_build,_and_manage_MobileFirst_project_artifacts.pdf">Using CLI to create, build, and manage MobileFirst project artifacts</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Remote_controlled_client-side_log_collection.pdf">Remote controlled client-side log collection</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Logging_in_native_Android_(Java).pdf">Logging in native Android (Java)</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Logging_in_native_iOS_(Objective-C).pdf">Logging in native iOS (Objective-C)</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Logging_in_MobileFirst_hybrid_applications_(JavaScript).pdf">Logging in MobileFirst hybrid applications (JavaScript)</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Shell_development_concepts.pdf">Shell development concepts</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Android_shell_development.pdf">Android shell development</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/iOS_shell_development.pdf">iOS shell development</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Location_services_in_hybrid_applications.pdf">Location services in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Location_services_in_native_Android_applications.pdf">Location services in native Android applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_client-side_development/Location_services_in_native_iOS_applications.pdf">Location services in native iOS applications</a>
-        </li>
-      </ul>
+<ul>
+<li><a href="tutorials/en/foundation/8.0/configuring-the-mfpf-sdk/integrating-mfpf-sdk.pdf">Integrating MobileFirst Platform Foundation SDK in Cordova Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/configuring-the-mfpf-sdk/configuring-a-native-ios-application-with-the-mfp-sdk.pdf">Configuring a native iOS application with the MobileFirst Platform SDK</a></li>
+<li><a href="tutorials/en/foundation/8.0/configuring-the-mfpf-sdk/configuring-a-native-android-application-with-the-mfp-sdk.pdf">Configuring a native Android application with the MobileFirst Platform SDK</a></li>
+<li><a href="tutorials/en/foundation/8.0/configuring-the-mfpf-sdk/configuring-a-native-windows-8-application-with-the-mfp-sdk.pdf">Configuring a native Windows 8 Universal application with the MobileFirst Platform SDK</a></li>
+<li><a href="tutorials/en/foundation/8.0/configuring-the-mfpf-sdk/configuring-a-native-windows-10-application-with-the-mfp-sdk.pdf">Configuring a native Windows 10 UWP application with the MobileFirst Platform SDK</a></li>
+</ul>
+
+<h3 id="cordova-client-side-development">Cordova client-side development</h3>
+
+<p>Learn MobileFirst APIs: UI controls, Direct Update, Logging and web &#8596; native interactions.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/client-side-development-/intro-mfpf-cordova.pdf">Introduction - MobileFirst SDK development in Cordova applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/updated-using-cli-to-create-build-and-manage-mobilefirst-project-artifacts.pdf">Using CLI to create, build, and manage MobileFirst project artifacts</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/common-ui-controls.pdf">Common UI controls</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/translation.pdf">Translation</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/using-direct-update-to-quickly-update-your-application.pdf">Using Direct Update to quickly update your application</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/debugging-applications.pdf">Debugging applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/remote-controlled-client-side-log-collection.pdf">Remote controlled client-side log collection</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/client-side-development-/remote-controlled-client-side-log-collection/logging-in-native-android.pdf">Logging in native Android</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/remote-controlled-client-side-log-collection/logging-in-native-ios.pdf">Logging in native iOS</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/remote-controlled-client-side-log-collection/logging-in-hybrid-applications.pdf">Logging in MobileFirst hybrid applications</a></li>
+</ul></li>
+<li>Adding native UI elements to hybrid applications
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/ios-adding-native-ui-elements-hybrid-applications.pdf">iOS – Adding native UI elements to hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/android-adding-native-ui-elements-hybrid-applications.pdf">Android – Adding native UI elements to hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/wp8-adding-native-ui-elements-hybrid-applications.pdf">Windows Phone 8 – Adding native UI elements to hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/wp10-adding-native-ui-elements-hybrid-applications.pdf">Windows Phone 10 – Adding native UI elements to hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/w8-adding-native-ui-elements-hybrid-applications.pdf">Windows 8 – Adding native UI elements to hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/cordova-client-side-development/w10-adding-native-ui-elements-hybrid-applications.pdf">Windows 10 – Adding native UI elements to hybrid applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/integrating-server-generated-pages-hybrid-applications.pdf">Integrating server-generated pages in hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/using-a-mobilefirst-application-as-a-container-for-server-generated-pages.pdf">Using MobileFirst application as a container for server-generated pages</a></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/container-advanced-pages.pdf">Container for advanced pages</a></li>
+</ul>
+
+<h3 id="server-side-development">Server-side development</h3>
+
+<p>Develop the server code (adapters) that your mobile app requires to integrate with enterprise back-end applications and cloud services.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/adapters-overview.pdf">Adapters overview</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters.pdf">JavaScript adapters</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters/js-http-adapter.pdf">JavaScript HTTP Adapter</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters/js-sql-adapter.pdf">JavaScript SQL Adapter</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters/js-cast-iron-adapter.pdf">JavaScript Cast Iron Adapter</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters/js-jms-adapter.pdf">JavaScript JMS Adapter</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/javascript-adapters/using-java-adapters.pdf">Using Java in JavaScript adapters</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/java-adapters.pdf">Java Adapters</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/java-adapters/java-http-adapter.pdf">Java HTTP adapter</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/java-adapters/java-sql-adapter.pdf">Java SQL adapter</a></li>
+</ul></li>
+<li>Invoking adapter procedures
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-hybrid-client-applications.pdf">Invoking adapter procedures from hybrid client applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-native-ios-swift-applications.pdf">Invoking adapter procedures from native iOS Swift applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-native-ios-applications.pdf">Invoking adapter procedures from native iOS Objective-C applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-native-android-applications.pdf">Invoking adapter procedures from native Android applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-native-windows-8-applications.pdf">Invoking adapter procedures from native Windows 8 Universal applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/invoking-adapter-procedures-native-java-platform-micro-editions-java-applications.pdf">Invoking adapter procedures from native Java Platform, Micro Editions (Java ME) applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/advanced-adapter-usage-mashup.pdf">Advanced adapter usage and mashup</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/debugging-adapters.pdf">Debugging adapters</a></li>
+<li><a href="tutorials/en/foundation/8.0/server-side-development/cloudant.pdf">Integrating with Cloudant by using an adapter</a></li>
+</ul>
+
+<h3 id="data">Data</h3>
+
+<p>Add data-related functionality to your applications. Create apps that can run offline.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/data/jsonstore.pdf">JSONStore</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/data/jsonstore/jsonstore-javascript-api.pdf">JSONStore in Cordova applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/data/jsonstore/jsonstore-objective-c-api.pdf">JSONStore in iOS applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/data/jsonstore/jsonstore-java-api.pdf">JSONStore in Android applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api.pdf">Working with Cloudant NoSQL DB API</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api/ios.pdf">iOS – Cloudant NoSQL DB API</a></li>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api/android.pdf">Android – Cloudant NoSQL DB API</a></li>
+</ul></li>
+</ul>
+
+<h3 id="notifications">Notifications</h3>
+
+<p>Send notifications to your mobile apps with IBM MobileFirst Platform Foundation.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview.pdf">Push Notifications Overview</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-hybrid-applications.pdf">Push notifications in hybrid applications</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-hybrid-applications/event-source.pdf">Event Source Notifications in Hybrid Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-hybrid-applications/tag-based.pdf">Tag and Broadcast Notifications in Hybrid Applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-ios-applications.pdf">Push notifications in native iOS applications</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-ios-applications/event-source.pdf">Event Source Notifications in Native iOS Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-ios-applications/tag-based.pdf">Tag and Broadcast Notifications in Native iOS Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-ios-applications/interactive-and-silent.pdf">Interactive and Silent Notifications in Native iOS Applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-android-applications.pdf">Push notifications in native Android applications</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-android-applications/event-source.pdf">Event Source Notifications in Native Android Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-android-applications/tag-based.pdf">Tag and Broadcast Notifications in Native Android Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-windows-phone-8-applications/event-source.pdf">Event Source Notifications in Native Windows Phone 8 Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-windows-phone-8-applications/tag-based.pdf">Tag and Broadcast Notifications in Native Windows Phone 8 Applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-windows-8-applications.pdf">Push notifications in native Windows 8 Universal applications</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-windows-8-applications/event-source.pdf">Event Source Notifications in Native Windows 8 Applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/push-notifications-overview/push-notifications-in-native-windows-8-applications/tag-based.pdf">Tag and Broadcast Notifications in Native Windows 8 Applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/sms-notifications.pdf">SMS Notification</a></li>
+<li><a href="tutorials/en/foundation/8.0/notifications/two-way-sms-communication.pdf">Two-way SMS communication</a></li>
+</ul>
+
+<h3 id="authentication-and-security">Authentication and security</h3>
+
+<p>Protect your applications and adapter procedures against unauthorized access by using authentication, login modules, and device provisioning.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/authentication-concepts.pdf">Authentication concepts</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/authentication-concepts/oauth-based-security-model.pdf">OAuth-based security model</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-authentication.pdf">Custom Authentication</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-authentication/custom-authentication-hybrid-applications.pdf">Custom authentication in hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-authentication/custom-authentication-native-ios-applications.pdf"> Custom authentication in native iOS applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-authentication/custom-authentication-in-native-android-applications.pdf">Custom authentication in native Android applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-authentication/custom-authentication-in-native-windows-8-applications.pdf">Custom authentication in native Windows 8 applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection.pdf">Application Authenticity Protection</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-hybrid-applications.pdf">Application Authenticity Protection in Hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-native-ios.pdf">Application Authenticity Protection in Native iOS applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-native-android-applications.pdf">Application Authenticity Protection in Native Android applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-in-native-windows-universal-applications.pdf">Application Authenticity Protection in Native Windows 8 Universal applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-in-native-windows-10-universal-applications.pdf">Application Authenticity Protection in Native Windows 10 Universal applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/application-authenticity-protection/application-authenticity-protection-in-native-windows-phone-10-applications.pdf">Application Authenticity Protection in Native Windows Phone 10 applications</a></li>
+</ul></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/client-x-509-certificate-authentication-user-enrollment.pdf">Client X.509 Certificate Authentication and User Enrollment</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/using-mobilefirst-server-authenticate-external-resources.pdf">Using the MobileFirst Server to authenticate external resources</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/using-ldap-login-module-to-authenticate-users-with-ldap-server-in-hybrid-applications.pdf">Using LDAP Login Module to authenticate users with LDAP server in hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/websphere-ltpa-based-authentication.pdf">WebSphere LTPA-based authentication</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/device-provisioning-concepts.pdf">Device provisioning concepts</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/custom-device-provisioning.pdf">Custom device provisioning</a></li>
+<li><a href="tutorials/en/foundation/8.0/authentication-and-security/ntlm-authentication.pdf">NTLM Authentication</a></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/remember-me.pdf">Remember Me</a></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/offline-authentication.pdf">Offline Authentication</a></li>
+<li><a href="tutorials/en/foundation/8.0/advanced-topics/device-enrollment.pdf">Device Enrollment</a></li>
+</ul>
+
+<h3 id="analytics">Analytics</h3>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/analytics/operational-analytics.pdf">Operational Analytics</a></li>
+<li><a href="tutorials/en/foundation/8.0/analytics/reports-analytics.pdf">Reports and analytics</a></li>
+</ul>
+
+<h3 id="moving-to-production">Moving to production</h3>
+
+<p>Move the apps that you create from your development environment to the production environment.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/moving-to-production/moving-development-environment-stand-alone-qa-production-servers.pdf">Moving from development environment to stand-alone QA and production servers</a></li>
+<li><a href="tutorials/en/foundation/8.0/moving-to-production/distributing-mobile-applications-with-application-center.pdf">Distributing mobile applications with Application Center</a></li>
+</ul>
+
+<h3 id="ibm-containers">IBM Containers</h3>
+
+<p>Deploy MobileFirst platform to the cloud using IBM Containers in Bluemix.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/ibm-containers.pdf">Overview</a></li>
+<li><a href="tutorials/en/foundation/8.0/ibm-containers/evaluate.pdf">Evaluate</a></li>
+<li><a href="tutorials/en/foundation/8.0/ibm-containers/run.pdf">Run</a></li>
+<li><a href="tutorials/en/foundation/8.0/ibm-containers/sample-app.pdf">Sample application</a></li>
+</ul>
+
+<h2 id="mobilefirst-quality-assurance"><a href="tutorials/en/quality-assurance/8tutorials/en/foundation/8.0/overview">MobileFirst Quality Assurance</a></h2>
+
+<p>Add testing capabilities to your application.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/cordova.pdf">MobileFirst Quality Assurance in Cordova applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/hybrid.pdf">MobileFirst Quality Assurance in Hybrid applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/ios.pdf">MobileFirst Quality Assurance in iOS applications</a></li>
+<li><a href="tutorials/en/foundation/8.0/android.pdf">MobileFirst Quality Assurance in Android applications</a></li>
+</ul>
+
+<h2 id="cloudant-data-layer">Cloudant Data Layer</h2>
+
+<p>Scalable database management for your MobileFirst projects.</p>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api.pdf">Working with Cloudant NoSQL DB API</a>
+
+<ul>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api/ios.pdf">iOS – Cloudant NoSQL DB API</a></li>
+<li><a href="tutorials/en/foundation/8.0/data/working-with-cloudant-nosql-db-api/android.pdf">Android – Cloudant NoSQL DB API</a></li>
+</ul></li>
+</ul>
+
+<h2 id="application-scanning">Application Scanning</h2>
+<div class="highlight"><pre><code class="language-" data-lang="">* [Application Scanning](tutorials/en/application-scanning.pdf)
+</code></pre></div>
+<h2 id="product-integration">Product Integration</h2>
+
+<ul>
+<li><a href="tutorials/en/product-integration/7.0/protect.pdf">Protect</a></li>
+<li><a href="tutorials/en/product-integration/7.0/mq-telemetry-transport.pdf">MQ Telemetry Transport</a></li>
+<li><a href="tutorials/en/product-integration/7.0/trusteer-android.pdf">Trusteer Android</a></li>
+<li><a href="tutorials/en/product-integration/7.0/trusteer-ios.pdf%3ETrusteer%20iOS">Trusteer iOS</a></li>
+</ul>
 
 
-      <h4>Server-side development</h4>
-      <p>Develop the server code (adapters) that your mobile app requires to integrate with enterprise back-end applications and cloud services.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Adapters_overview.pdf">Adapters overview</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Javascript_Adapters.pdf">JavaScript adapters</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/JavaScript_HTTP_Adapter.pdf">JavaScript HTTP adapter</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/JavaScript_SQL_Adapter.pdf">JavaScript SQL adapter</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/JavaScript_Cast_Iron_Adapter.pdf">JavaScript Cast Iron adapter</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/JavaScript_JMS_Adapter.pdf">JavaScript JMS adapter</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Using_Java_in_JavaScript_adapters.pdf">Using Java in JavaScript adapters</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Java_Adapters.pdf">Java adapters</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Java_HTTP_Adapter.pdf">Java HTTP adapter</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Java_SQL_Adapter.pdf">Java SQL adapter</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_hybrid_client_applications.pdf">Invoking adapter procedures from hybrid client applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_iOS_Swift_applications.pdf">Invoking adapter procedures from native iOS Swift applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_iOS_Objective-C_applications.pdf">Invoking adapter procedures from native iOS Objective-C applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_Android_applications.pdf">Invoking adapter procedures from native Android applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_Windows_Phone_8_applications.pdf">Invoking adapter procedures from native Windows Phone 8 applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_Windows_8_Universal_applications.pdf">Invoking adapter procedures from native Windows 8 Universal applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Invoking_adapter_procedures_from_native_Java_Platform,_Micro_Editions_(Java_ME)_applications.pdf">Invoking adapter procedures from native Java Platform, Micro Editions (Java ME) applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Advanced_adapter_usage_and_mashup.pdf">Advanced adapter usage and mashup</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Debugging_Adapters.pdf">Debugging Adapters</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Server-side_development/Integrating_with_Cloudant_by_using_an_adapter.pdf">Integrating with Cloudant by using an adapter</a></li>
-      </ul>
-
-      <h4>Data</h4>
-      <p>Add data-related functionality to your applications. Create apps that can run offline.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Data/Working_offline.pdf">Working offline</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Data/Storing_sensitive_data_in_encrypted_cache.pdf">Storing sensitive data in encrypted cache</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Data/JSONStore.pdf">JSONStore</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Data/JSONStore_–_JavaScript_API.pdf">JSONStore - JavaScript API</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Data/JSONStore_-_Java_API.pdf">JSONStore - Java API</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Data/JSONStore_-_Objective-C_API.pdf">JSONStore - Objective-C API</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Data/Working_with_Cloudant_NoSQL_DB_API.pdf">Working with Cloudant NoSQL DB API</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Data/iOS_-_Cloudant_NoSQL_DB_API.pdf">iOS – Cloudant NoSQL DB API</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Data/Android_-_Cloudant_NoSQL_DB_API.pdf">Android – Cloudant NoSQL DB API</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <h4>Adding native functionality to hybrid applications with Apache Cordova</h4>
-      <p>Use Apache Cordova with IBM MobileFirst Platform Foundation, and use native pages in hybrid applications.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Apache_Cordova_overview.pdf">Apache Cordova overview</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/iOS_-_Using_native_pages_in_hybrid_applications.pdf">iOS - Using native pages in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/iOS_-_Adding_native_functionality_to_hybrid_applications_with_an_Apache_Cordova_plugin.pdf">iOS - Adding native functionality to hybrid application with an Apache Cordova plugin</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/iOS_-_Adding_native_UI_elements_to_hybrid_applications.pdf">iOS - Adding native UI elements to hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Android_-_Using_native_pages_in_hybrid_applications.pdf">Android - Using native pages in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Android_-_Adding_native_functionality_to_hybrid_application_with_an_Apache_Cordova_plugin.pdf">Android - Adding native functionality to hybrid application with an Apache Cordova plugin</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Android_-_Adding_native_UI_elements_to_hybrid_applications.pdf">Android - Adding native UI elements to hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Windows_Phone_8_-_Using_native_pages_in_hybrid_applications.pdf">Windows Phone 8 - Using native pages in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Windows_Phone_8_-_Adding_native_functionality_to_hybrid_applications_with_an_Apache_Cordova_plug-in.pdf">Windows Phone 8 - Adding native functionality to hybrid application with an Apache Cordova plugin</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Adding_native_functionality_to_hybrid_applications_with_Apache_Cordova/Windows_Phone_8_-_Adding_native_UI_elements_to_hybrid_applications.pdf">Windows Phone 8 - Adding native UI elements to hybrid applications</a>
-        </li>
-      </ul>
-
-
-      <h4>Notifications </h4>
-      <p>Send notifications to your mobile apps with IBM MobileFirst Platform Foundation</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_Notifications_Overview.pdf">Push Notifications Overview</a>
-          <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_notifications_in_hybrid_applications.pdf">Push notifications in hybrid applications</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Event_Source_Notifications_in_Hybrid_Applications.pdf">Event source-based notifications in hybrid applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Tag_and_Broadcast_Notifications_in_Hybrid_Applications.pdf">Tag and Broadcast Notifications in Hybrid Applications</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_notifications_in_native_iOS_applications.pdf">Push notifications in native iOS applications</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Event_Source_Notifications_in_Native_iOS_Applications.pdf">Event source-based notifications in native iOS applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Tag_and_Broadcast_Notifications_in_Native_iOS_Applications.pdf">Tag and Broadcast Notifications in Native iOS Applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Interactive_and_Silent_Notifications_in_Native_iOS_Applications.pdf">Interactive and Silent Notifications in Native iOS Applications</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_notifications_in_native_Android_applications.pdf">Push notifications in native Android applications</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Event_Source_Notifications_in_Native_Android_Applications.pdf">Event source-based notifications in native Android applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Tag_and_Broadcast_Notifications_in_Native_Android_Applications.pdf">Tag and Broadcast Notifications in Native Android Applications</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_notifications_in_native_Windows_Phone_8_applications.pdf">Push notifications in native Windows Phone 8 applications</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Event_Source_Notifications_in_Native_Windows_Phone_8_Applications.pdf">Event source-based notifications in native Windows Phone 8 applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Tag_and_Broadcast_Notifications_in_Native_Windows_Phone_8_Applications.pdf">Tag and Broadcast Notifications in Native Windows Phone 8 Applications</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Push_Notifications_in_Native_Windows_8_Universal_Applications.pdf">Push notifications in native Windows 8 Universal applications</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Event_Source_Notifications_in_Native_Windows_8_Applications.pdf">Event source-based notifications in native Windows 8 applications</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Tag_and_Broadcast_Notifications_in_Native_Windows_Phone_8_Applications.pdf">Tag and Broadcast Notifications in Native Windows 8 Applications</a></li>
-          </ul>
-        </li>
-      </ul></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/SMS_Notifications.pdf">SMS Notifications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Notifications/Two-way_SMS_communication.pdf">Two-way SMS communication</a>
-        </li>
-      </ul>
-
-      <h4>Authentication and security</h4>
-      <p>Protect your applications and adapter procedures against unauthorized access by using authentication, login modules, and device provisioning.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Authentication_concepts.pdf">Authentication concepts</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Classic_security_model.pdf">Classic security model</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/OAuth-based_security_model.pdf">OAuth-based security model</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication.pdf">Form-based authentication</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication_in_hybrid_applications.pdf">Form-based authentication in hybrid applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication_in_native_Android_applications.pdf">Form-based authentication in native Android applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication_in_native_iOS_applications.pdf">Form-based authentication in native iOS applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication_in_native_Windows_Phone_8_applications.pdf">Form-based authentication in native Windows Phone 8 applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Form-based_authentication_in_native_Windows_8_applications.pdf">Form-based authentication in native Windows 8 applications</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication.pdf">Adapter-based authentication</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication_in_hybrid_applications.pdf">Adapter-based authentication in hybrid applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication_in_native_Android_applications.pdf">Adapter-based authentication in native Android applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication_in_native_iOS_applications.pdf">Adapter-based authentication in native iOS applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication_in_native_Windows_Phone_8_applications.pdf">Adapter-based authentication in native Windows Phone 8 applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Adapter-based_authentication_in_native_Windows_8_applications.pdf">Adapter-based authentication in native Windows 8 applications</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication.pdf">Custom Authentication</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication_in_hybrid_applications.pdf">Custom Authenticator and Login Module in hybrid applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication_in_native_Android_applications.pdf">Custom Authenticator and Login Module in native Android applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication_in_native_iOS_applications.pdf">Custom Authenticator and Login Module in native iOS applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication_in_native_Windows_Phone_8_applications.pdf">Custom Authenticator and Login Module in native Windows Phone 8 applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_Authentication_in_native_Windows_8_applications.pdf">Custom Authenticator and Login Module in native Windows 8 applications</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Using_LDAP_Login_Module_to_authenticate_users_with_LDAP_server_in_hybrid_applications.pdf">Using LDAP Login Module to authenticate users with LDAP server in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/WebSphere_LTPA-based_authentication.pdf">WebSphere LTPA-based authentication</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Device_provisioning_concepts.pdf">Device provisioning concepts</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Custom_device_provisioning.pdf">Custom device provisioning</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Application_Authenticity_Protection.pdf">Application Authenticity Protection</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Application_Authenticity_Protection_in_hybrid_applications.pdf">Application Authenticity Protection in Hybrid applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Application_Authenticity_Protection_in_native_Android_applications.pdf">Application Authenticity Protection in Native Android applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Application_Authenticity_Protection_in_native_iOS_applications.pdf">Application Authenticity Protection in Native iOS applications</a>
-            </li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Application_Authenticity_Protection_in_Native_Windows_Universal_applications.pdf">Application Authenticity Protection in Native Windows Universal applications</a></li>
-          </ul>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Client_X509_Certificate_Authentication_and_User_Enrollment.pdf">Client X.509 Certificate Authentication and User Enrollment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Authentication_and_security/Using_the_MobileFirst_Server_to_authenticate_external_resources.pdf">Using the MobileFirst Server to authenticate external resources</a>
-        </li>
-      </ul>
-
-      <h4>Advanced topics</h4>
-      <p>Develop by using shells, use geo-location services, remotely load dynamic content, test your apps with the Mobile Test Workbench, and more.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/NTLM_Authentication.pdf">NTLM Authentication</a></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Remember_Me.pdf">Remember Me</a></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Double-step_adapter_authentication.pdf">Double-step adapter authentication</a></li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Offline_Authentication.pdf">Offline Authentication</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Integrating_server-generated_pages_in_hybrid_applications.pdf">Integrating server-generated pages in hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Using_a_MobileFirst_Hybrid_application_as_a_container_for_server-generated_pages.pdf">Using a MobileFirst Hybrid application as a container for server-generated pages</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Container_for_advanced_pages_in_hybrid_applications.pdf">Container for advanced pages in Hybrid applications</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Accelerating_hybrid_application_development_by_reusing_resources.pdf">Accelerating Hybrid application development by reusing resources</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Testing_MobileFirst_Platform_applications_with_the_Mobile_Test_Workbench.pdf">Testing MobileFirst Platform applications with the Mobile Test Workbench</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Device_Enrollment.pdf">Device Enrollment</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Working_with_Beacons.pdf">Working with Beacons</a>
-          <ul>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Beacons_in_iOS.pdf">Beacons in iOS</a></li>
-            <li><a href="Foundation/Getting_Started_Tutorials/Advanced_topics/Beacons_in_Android.pdf">Beacons in Android</a></li>
-          </ul>
-        </li>
-      </ul>
-      <h4>Moving to production</h4>
-      <p>Move the apps that you create from your development environment to the production environment.</p>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Moving_to_production/Moving_from_development_environment_to_stand-alone_QA_and_production_servers.pdf">Moving from development environment to stand-alone QA and production servers</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Moving_to_production/Operational_Analytics.pdf">Operational Analytics</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Moving_to_production/Reports_and_analytics.pdf">Reports and analytics</a>
-        </li>
-        <li><a href="Foundation/Getting_Started_Tutorials/Moving_to_production/Distributing_mobile_applications_with_Application_Center.pdf">Distributing mobile applications with Application Center</a>
-        </li>
-      </ul>
-      <h4>Starter application samples</h4>
-      <ul>
-        <li><a href="Foundation/Getting_Started_Tutorials/Starter_application_samples/Starter_Application_samples.pdf">Starter Application sample application</a>
-        </li>
-      </ul>
-
-      <h3 id="bluemixTutorials">IBM MobileFirst Platform Foundation on IBM Containers</h3>
-      <ul>
-        <li><a href="Foundation/Foundation_on_Bluemix/Introduction_to_IBM_MobileFirst_Platform_Foundation_on_IBM_Containers.pdf">Introduction to IBM MobileFirst Platform Foundation on IBM Containers</a></li>
-        <li><a href="Foundation/Foundation_on_Bluemix/Evaluate_IBM_MobileFirst_Platform_Foundation_on_IBM_Containers.pdf">Evaluate IBM MobileFirst Platform Foundation on IBM Containers</a></li>
-        <li><a href="Foundation/Foundation_on_Bluemix/Run_IBM_MobileFirst_Platform_Foundation_on_IBM_Containers.pdf">Run IBM MobileFirst Platform Foundation on IBM Containers</a></li>
-        <li><a href="Foundation/Foundation_on_Bluemix/Sample_Application_for_IBM_MobileFirst_Platform_Foundation_on_IBM_Containers.pdf">Sample Application for IBM MobileFirst Platform Foundation on IBM Containers</a></li>
-      </ul>
-
-      <h2 id="qualityAssurance">Quality Assurance</h2>
-      <ul>
-       <li><a href="Quality_Assurance/MobileFirst_Quality_Assurance.pdf">MobileFirst Quality Assurance</a>
-       <ul>
-         <li><a href="Quality_Assurance/Mobile_Quality_Assurance_in_Native_iOS_Applications.pdf">Mobile Quality Assurance in Native iOS Applications</a></li>
-         <li><a href="Quality_Assurance/MobileFirst_Quality_Assurance_in_Native_Android_Applications.pdf">MobileFirst Quality Assurance in Native Android Applications</a></li>
-       </ul></li>
-      </ul>
-
-      <h2 id="applicationScanning">Application Scanning</h2>
-      <ul>
-        <li><a href="Application_Scanning/MobileFirst_Platform_Application_Scanning.pdf">MobileFirst Platform Application Scanning</a></li>
-      </ul>
-
-      <h2 id="cloudantDataLayer">Cloudant Data Layer</h2>
-      <ul>
-        <li><a href="Cloudant_Data_Layer/IBM_MobileFirst_Platform_Cloudant_Data_Layer_Local_edition.pdf">IBM MobileFirst Platform Cloudant Data Layer Local edition</a></li>
-      </ul>
-
-      <h2 id="productIntegrationTutorials">Product Integration</h2>
-      <p>The integration documentation and samples in this section will help you start integrating IBM MobileFirst Platform Foundation with other components and products for mobile app development, testing, and deployment.</p>
-        <ul>
-          <li><a href="Product_Integration/Trusteer_iOS_Integration.pdf">Trusteer iOS Integration</a></li>
-          <li><a href="Product_Integration/Trusteer_Android_Integration.pdf">Trusteer Android Integration</a></li>
-          <li><a href="Product_Integration/MobileFirst_Protect.pdf">Protect</a></li>
-          <li><a href="Product_Integration/MQTT.pdf">MQ Telemetry Transport</a></li>
-        </ul>
-    </div>
-  </article>
-
-  <hr>
-  <article>
-    <details>
-      <summary>Legal notices</summary>
-      <div class="pn-copy">
-
-		<p>This information was developed for products and services that are offered in the USA.</p>
-<p>IBM may not offer the products, services, or features discussed in this document in other countries. Consult your local IBM representative for information on the products and services currently available in your area. Any reference to an IBM product, program, or service is not intended to state or imply that only that IBM product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any IBM intellectual property right may be used instead. However, it is the user’s responsibility to evaluate and verify the operation of any non-IBM product, program, or service.</p>
-<p>IBM may have patents or pending patent applications covering subject matter described in this document. The furnishing of this document does not grant you any license to these patents. You can send license inquiries, in writing, to:<br>
-<em>IBM® Director of Licensing<br>
-IBM Corporation<br>
-North Castle Drive, MD-NC119<br>
-Armonk, NY 10504-1785<br>
-United States of America<br>
-</em></p>
-<p>For license inquiries regarding double-byte character set (DBCS) information, contact the IBM Intellectual Property Department in your country or send inquiries, in writing, to:<br>
-<em>Intellectual Property Licensing<br>
-Legal and Intellectual Property Law<br>
-IBM Japan Ltd.<br>
-19-21, Nihonbashi-Hakozakicho, Chuo-ku<br>
-Tokyo 103-8510, Japan<br>
-</em></p>
-<p><strong>The following paragraph does not apply to the United Kingdom or any other country where such provisions are inconsistent with local law:</strong> INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS PUBLICATION “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some states do not allow disclaimer of express or implied warranties in certain transactions, therefore, this statement may not apply to you.</p>
-<p>This information could include technical inaccuracies or typographical errors. Changes are periodically made to the information herein; these changes will be incorporated in new editions of the publication. IBM may make improvements and/or changes in the product(s) and/or the program(s) described in this publication at any time without notice.</p>
-<p>Any references in this information to non-IBM websites are provided for convenience only and do not in any manner serve as an endorsement of those websites. The materials at those websites are not part of the materials for this IBM product and use of those websites is at your own risk.</p>
-<p>IBM may use or distribute any of the information you supply in any way it believes appropriate without incurring any obligation to you.</p>
-<p>Licensees of this program who wish to have information about it for the purpose of enabling: (i) the exchange of information between independently created programs and other programs (including this one) and (ii) the mutual use of the information which has been exchanged, should contact:<br>
-<em>IBM Corporation<br>
-Dept F6, Bldg 1<br>
-294 Route 100<br>
-Somers NY 10589-3216<br>
-USA<br>
-</em></p>
-<p>Such information may be available, subject to appropriate terms and conditions, including in some cases, payment of a fee.</p>
-<p>The licensed program described in this document and all licensed material available for it are provided by IBM under terms of the IBM Customer Agreement, IBM International Program License Agreement or any equivalent agreement between us.</p>
-<p>Any performance data contained herein was determined in a controlled environment. Therefore, the results obtained in other operating environments may vary significantly. Some measurements may have been made on development-level systems and there is no guarantee that these measurements will be the same on generally available systems. Furthermore, some measurements may have been estimated through extrapolation. Actual results may vary. Users of this document should verify the applicable data for their specific environment.</p>
-<p>Information concerning non-IBM products was obtained from the suppliers of those products, their published announcements or other publicly available sources. IBM has not tested those products and cannot confirm the accuracy of performance, compatibility or any other claims related to non-IBM products. Questions on the capabilities of non-IBM products should be addressed to the suppliers of those products.</p>
-<p>This information contains examples of data and reports used in daily business operations. To illustrate them as completely as possible, the examples include the names of individuals, companies, brands, and products. All of these names are fictitious and any similarity to the names and addresses used by an actual business enterprise is entirely coincidental.</p>
-<p>COPYRIGHT LICENSE:</p>
-<p>This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs. The sample programs are provided “AS IS”, without warranty of any kind. IBM shall not be liable for any damages arising out of your use of the sample programs.</p>
-<p>Each copy or any portion of these sample programs or any derivative work, must include a copyright notice as follows:</p>
-<p>Portions of this code are derived from IBM Corp. Sample Programs.</p>
-<p>© Copyright IBM Corp. <code>_</code>enter the year or years<code>_</code>. All rights reserved.</p>
-<p><strong>Trademarks</strong><br>
-IBM, the IBM logo, ibm.com®, AIX®, Bluemix™, Cast Iron®, Cloudant®, Cognos®, DataPower®, DB2®, developerWorks®, Express®, IBM MobileFirst™, IBM SmartCloud®, Lotus®, Passport Advantage®, Power®, PureApplication®, Rational®, Rational Team Concert™, Redbooks®, SoftLayer®, System z®, Tealeaf®, Tivoli®, Trusteer®, WebSphere®, and Worklight® are trademarks or registered trademarks of International Business Machines Corporation, registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at “<a href="http://www.ibm.com/legal/copytrade.shtml">Copyright and trademark information</a>” at <a href="www.ibm.com/legal/copytrade.shtml">www.ibm.com/legal/copytrade.shtml</a>.</p>
-<p>Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States, and/or other countries.</p>
-<p>Intel, Intel logo, Intel Inside, Intel Inside logo, Intel Centrino, Intel Centrino logo, Celeron, Intel Xeon, Intel SpeedStep, Itanium, and Pentium are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United States and other countries.</p>
-<p>Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.</p>
-<p>Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both.</p>
-<p>Java™ and all Java-based trademarks and logos are trademarks or registered trademarks of Oracle and/or its affiliates.</p>
-<p>UNIX is a registered trademark of The Open Group in the United States and other countries.</p>
-<p>Node.js is a registered trademark of Joyent, Inc. in the United States and other countries. This documentation is not formally related to or endorsed by the official Joyent Node.js project.</p>
-<p>Other company products or service names may be trademarks or service marks of others.</p>
-<p>This document may not be reproduced in whole or in part without the prior written permission of IBM.</p>
-<p><strong>Terms and conditions for product documentation</strong><br>
-Permissions for the use of these publications are granted subject to the following terms and conditions.</p>
-<p><strong>Applicability</strong><br>
-These terms and conditions are in addition to any terms of use for the IBM website.</p>
-<p><strong>Personal use</strong><br>
-You may reproduce these publications for your personal, noncommercial use provided that all proprietary notices are preserved. You may not distribute, display or make derivative work of these publications, or any portion thereof, without the express consent of IBM.</p>
-<p><strong>Commercial use</strong><br>
-You may reproduce, distribute and display these publications solely within your enterprise provided that all proprietary notices are preserved. You may not make derivative works of these publications, or reproduce, distribute or display these publications or any portion thereof outside your enterprise, without the express consent of IBM.</p>
-<p><strong>Rights</strong><br>
-Except as expressly granted in this permission, no other permissions, licenses or rights are granted, either express or implied, to the publications or any information, data, software or other intellectual property contained therein.</p>
-<p>IBM reserves the right to withdraw the permissions granted herein whenever, in its discretion, the use of the publications is detrimental to its interest or, as determined by IBM, the above instructions are not being properly followed.</p>
-<p>You may not download, export or re-export this information except in full compliance with all applicable laws and regulations, including all United States export laws and regulations.</p>
-<p>IBM MAKES NO GUARANTEE ABOUT THE CONTENT OF THESE PUBLICATIONS. THE PUBLICATIONS ARE PROVIDED “AS-IS” AND WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE.</p>
-<p><strong>IBM Online Privacy Statement</strong><br>
-IBM Software products, including software as a service solutions, (“Software Offerings”) may use cookies or other technologies to collect product usage information, to help improve the end user experience, to tailor interactions with the end user or for other purposes. In many cases no personally identifiable information is collected by the Software Offerings. Some of our Software Offerings can help enable you to collect personally identifiable information. If this Software Offering uses cookies to collect personally identifiable information, specific information about this offering’s use of cookies is set forth below.</p>
-<p>Depending upon the configurations deployed, this Software Offering may use session cookies that collect session information (generated by the application server). These cookies contain no personally identifiable information and are required for session management. Additionally, persistent cookies may be randomly generated to recognize and manage anonymous users. These cookies also contain no personally identifiable information and are required.</p>
-<p>If the configurations deployed for this Software Offering provide you as customer the ability to collect personally identifiable information from end users via cookies and other technologies, you should seek your own legal advice about any laws applicable to such data collection, including any requirements for notice and consent. For more information about the use of various technologies, including cookies, for these purposes, see IBM’s Privacy Policy at <a href="http://www.ibm.com/privacy">http://www.ibm.com/privacy</a> and IBM’s Online Privacy Statement at <a href="http://www.ibm.com/privacy/details">http://www.ibm.com/privacy/details</a> the section entitled “Cookies, Web Beacons and Other Technologies” and the “IBM Software Products and Software-as-a-Service Privacy Statement” at <a href="http://www.ibm.com/software/info/product-privacy">http://www.ibm.com/software/info/product-privacy</a>.</p>
-
-	</div>
-        <h2>About IBM</h2> See <a href="http://www.ibm.com/ibm/us/en/">http://www.ibm.com/ibm/us/en/</a>.</p>
-</body>
-
+        <article>
+            <details>
+                <summary>Legal notices</summary>
+                <div>
+                    <p>This information was developed for products and services that are offered in the USA.</p>
+                    <p>IBM may not offer the products, services, or features discussed in this document in other countries. Consult your local IBM representative for information on the products and services currently available in your area. Any reference to
+                        an IBM product, program, or service is not intended to state or imply that only that IBM product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any IBM intellectual
+                        property right may be used instead. However, it is the user’s responsibility to evaluate and verify the operation of any non-IBM product, program, or service.</p>
+                    <p>IBM may have patents or pending patent applications covering subject matter described in this document. The furnishing of this document does not grant you any license to these patents. You can send license inquiries, in writing, to:
+                        <br>
+                        <em>IBM® Director of Licensing
+                            <br> IBM Corporation
+                            <br> North Castle Drive, MD-NC119
+                            <br> Armonk, NY 10504-1785
+                            <br> United States of America
+                            <br>
+                        </em>
+                    </p>
+                    <p>For license inquiries regarding double-byte character set (DBCS) information, contact the IBM Intellectual Property Department in your country or send inquiries, in writing, to:
+                        <br>
+                        <em>Intellectual Property Licensing
+                            <br> Legal and Intellectual Property Law
+                            <br> IBM Japan Ltd.
+                            <br> 19-21, Nihonbashi-Hakozakicho, Chuo-ku
+                            <br> Tokyo 103-8510, Japan
+                            <br>
+                        </em>
+                    </p>
+                    <p>
+                        <strong>The following paragraph does not apply to the United Kingdom or any other country where such provisions are inconsistent with local law:</strong> INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS PUBLICATION “AS IS” WITHOUT
+                        WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some states do not allow disclaimer of express or implied
+                        warranties in certain transactions, therefore, this statement may not apply to you.</p>
+                    <p>This information could include technical inaccuracies or typographical errors. Changes are periodically made to the information herein; these changes will be incorporated in new editions of the publication. IBM may make improvements and/or
+                        changes in the product(s) and/or the program(s) described in this publication at any time without notice.</p>
+                    <p>Any references in this information to non-IBM websites are provided for convenience only and do not in any manner serve as an endorsement of those websites. The materials at those websites are not part of the materials for this IBM product
+                        and use of those websites is at your own risk.</p>
+                    <p>IBM may use or distribute any of the information you supply in any way it believes appropriate without incurring any obligation to you.</p>
+                    <p>Licensees of this program who wish to have information about it for the purpose of enabling: (i) the exchange of information between independently created programs and other programs (including this one) and (ii) the mutual use of the
+                        information which has been exchanged, should contact:
+                        <br>
+                        <em>IBM Corporation
+                            <br> Dept F6, Bldg 1
+                            <br> 294 Route 100
+                            <br> Somers NY 10589-3216
+                            <br> USA
+                            <br>
+                        </em>
+                    </p>
+                    <p>Such information may be available, subject to appropriate terms and conditions, including in some cases, payment of a fee.</p>
+                    <p>The licensed program described in this document and all licensed material available for it are provided by IBM under terms of the IBM Customer Agreement, IBM International Program License Agreement or any equivalent agreement between us.</p>
+                    <p>Any performance data contained herein was determined in a controlled environment. Therefore, the results obtained in other operating environments may vary significantly. Some measurements may have been made on development-level systems
+                        and there is no guarantee that these measurements will be the same on generally available systems. Furthermore, some measurements may have been estimated through extrapolation. Actual results may vary. Users of this document should
+                        verify the applicable data for their specific environment.</p>
+                    <p>Information concerning non-IBM products was obtained from the suppliers of those products, their published announcements or other publicly available sources. IBM has not tested those products and cannot confirm the accuracy of performance,
+                        compatibility or any other claims related to non-IBM products. Questions on the capabilities of non-IBM products should be addressed to the suppliers of those products.</p>
+                    <p>This information contains examples of data and reports used in daily business operations. To illustrate them as completely as possible, the examples include the names of individuals, companies, brands, and products. All of these names
+                        are fictitious and any similarity to the names and addresses used by an actual business enterprise is entirely coincidental.</p>
+                    <p>COPYRIGHT LICENSE:</p>
+                    <p>This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to
+                        IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have
+                        not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs. The sample programs are provided “AS IS”, without warranty of any kind. IBM shall
+                        not be liable for any damages arising out of your use of the sample programs.</p>
+                    <p>Each copy or any portion of these sample programs or any derivative work, must include a copyright notice as follows:</p>
+                    <p>Portions of this code are derived from IBM Corp. Sample Programs.</p>
+                    <p>© Copyright IBM Corp.
+                        <code>_</code>enter the year or years
+                        <code>_</code>. All rights reserved.</p>
+                    <p>
+                        <strong>Trademarks</strong>
+                        <br> IBM, the IBM logo, ibm.com®, AIX®, Bluemix™, Cast Iron®, Cloudant®, Cognos®, DataPower®, DB2®, developerWorks®, Express®, IBM MobileFirst™, IBM SmartCloud®, Lotus®, Passport Advantage®, Power®, PureApplication®, Rational®, Rational
+                        Team Concert™, Redbooks®, SoftLayer®, System z®, Tealeaf®, Tivoli®, Trusteer®, WebSphere®, and Worklight® are trademarks or registered trademarks of International Business Machines Corporation, registered in many jurisdictions worldwide.
+                        Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at “<a href="http://www.ibm.com/legal/copytrade.shtml">Copyright and trademark information</a>”
+                        at <a href="www.ibm.com/legal/copytrade.shtml">www.ibm.com/legal/copytrade.shtml</a>.</p>
+                    <p>Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States, and/or other countries.</p>
+                    <p>Intel, Intel logo, Intel Inside, Intel Inside logo, Intel Centrino, Intel Centrino logo, Celeron, Intel Xeon, Intel SpeedStep, Itanium, and Pentium are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the
+                        United States and other countries.</p>
+                    <p>Linux is a registered trademark of Linus Torvalds in the United States, other countries, or both.</p>
+                    <p>Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both.</p>
+                    <p>Java™ and all Java-based trademarks and logos are trademarks or registered trademarks of Oracle and/or its affiliates.</p>
+                    <p>UNIX is a registered trademark of The Open Group in the United States and other countries.</p>
+                    <p>Node.js is a registered trademark of Joyent, Inc. in the United States and other countries. This documentation is not formally related to or endorsed by the official Joyent Node.js project.</p>
+                    <p>Other company products or service names may be trademarks or service marks of others.</p>
+                    <p>This document may not be reproduced in whole or in part without the prior written permission of IBM.</p>
+                    <p>
+                        <strong>Terms and conditions for product documentation</strong>
+                        <br> Permissions for the use of these publications are granted subject to the following terms and conditions.</p>
+                    <p>
+                        <strong>Applicability</strong>
+                        <br> These terms and conditions are in addition to any terms of use for the IBM website.</p>
+                    <p>
+                        <strong>Personal use</strong>
+                        <br> You may reproduce these publications for your personal, noncommercial use provided that all proprietary notices are preserved. You may not distribute, display or make derivative work of these publications, or any portion thereof,
+                        without the express consent of IBM.</p>
+                    <p>
+                        <strong>Commercial use</strong>
+                        <br> You may reproduce, distribute and display these publications solely within your enterprise provided that all proprietary notices are preserved. You may not make derivative works of these publications, or reproduce, distribute or display
+                        these publications or any portion thereof outside your enterprise, without the express consent of IBM.</p>
+                    <p>
+                        <strong>Rights</strong>
+                        <br> Except as expressly granted in this permission, no other permissions, licenses or rights are granted, either express or implied, to the publications or any information, data, software or other intellectual property contained therein.</p>
+                    <p>IBM reserves the right to withdraw the permissions granted herein whenever, in its discretion, the use of the publications is detrimental to its interest or, as determined by IBM, the above instructions are not being properly followed.</p>
+                    <p>You may not download, export or re-export this information except in full compliance with all applicable laws and regulations, including all United States export laws and regulations.</p>
+                    <p>IBM MAKES NO GUARANTEE ABOUT THE CONTENT OF THESE PUBLICATIONS. THE PUBLICATIONS ARE PROVIDED “AS-IS” AND WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT,
+                        AND FITNESS FOR A PARTICULAR PURPOSE.</p>
+                    <p>
+                        <strong>IBM Online Privacy Statement</strong>
+                        <br> IBM Software products, including software as a service solutions, (“Software Offerings”) may use cookies or other technologies to collect product usage information, to help improve the end user experience, to tailor interactions with
+                        the end user or for other purposes. In many cases no personally identifiable information is collected by the Software Offerings. Some of our Software Offerings can help enable you to collect personally identifiable information. If
+                        this Software Offering uses cookies to collect personally identifiable information, specific information about this offering’s use of cookies is set forth below.</p>
+                    <p>Depending upon the configurations deployed, this Software Offering may use session cookies that collect session information (generated by the application server). These cookies contain no personally identifiable information and are required
+                        for session management. Additionally, persistent cookies may be randomly generated to recognize and manage anonymous users. These cookies also contain no personally identifiable information and are required.</p>
+                    <p>If the configurations deployed for this Software Offering provide you as customer the ability to collect personally identifiable information from end users via cookies and other technologies, you should seek your own legal advice about
+                        any laws applicable to such data collection, including any requirements for notice and consent. For more information about the use of various technologies, including cookies, for these purposes, see IBM’s Privacy Policy at <a href="http://www.ibm.com/privacy">http://www.ibm.com/privacy</a>                    and IBM’s Online Privacy Statement at <a href="http://www.ibm.com/privacy/details">http://www.ibm.com/privacy/details</a> the section entitled “Cookies, Web Beacons and Other Technologies” and the “IBM Software Products and Software-as-a-Service
+                        Privacy Statement” at <a href="http://www.ibm.com/software/info/product-privacy">http://www.ibm.com/software/info/product-privacy</a>.</p>
+                </div>
+                
+                <h2>About IBM</h2> 
+                See <a href="http://www.ibm.com/ibm/us/en/">http://www.ibm.com/ibm/us/en/</a>.</p>
+            </details>
+        </article>
+    </body>
 </html>
