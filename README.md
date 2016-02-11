@@ -1,6 +1,6 @@
 IBM MobileFirst Platform Foundation
 ===
-### Tutorials for offline reading
+## Tutorials for offline reading
 
 Download a PDF version of the tutorials for when Internet connectivity is unavailable.
 
